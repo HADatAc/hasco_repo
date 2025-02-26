@@ -41,7 +41,7 @@ services:
     environment:
       JAVA_OPTS: "-Xms128m -Xmx12g"
     volumes:
-      - /var/data/docker/logs/hascoapi:/hascoapi/logs
+      - /var/log/hascoapi:/hascoapi/logs
     depends_on:
       - fuseki
     networks:
@@ -52,11 +52,6 @@ services:
 
 volumes:
   hascoapi-fuseki-data:
-    driver: local
-    driver_opts:
-      type: none
-      device: /var/data/docker/volumes/hascoapi-fuseki-data
-      o: bind
-
+  
 networks:
   hascorepo:
